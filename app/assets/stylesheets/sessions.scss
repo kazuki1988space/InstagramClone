@@ -1,0 +1,245 @@
+.form.logIn{
+  width: 100%;
+}
+
+.form table{
+  margin: 0 auto;
+  width: 100%;
+  border-collapse: separate;
+}
+
+.form.submit table tr th{
+  width: 35%;
+  text-align: right;
+  color: #ddd;
+}
+
+.form.submit table tr th label{
+  padding: 20px 0 0;
+}
+
+.form.submit table tr td{
+  width: 65%;
+  padding-left: 3%;
+  text-align: left;
+}
+
+.form.submit table tr td input{
+  width: 50%;
+  padding: 10px 0 0;
+  background-color: #000;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  color: #fff;
+}
+
+.form.submit.newInsta table th, .form.submit.newInsta table td
+, .form.view table th, .form.view table td{
+  border: 1px #ddd solid;
+}
+
+.form.submit.newInsta table tr th{
+  width: 30%;
+  text-align: center;
+  color: #ddd;
+}
+
+.form.submit.newInsta table tr th label{
+  padding: 10px 0;
+}
+
+.form.submit.newInsta table tr td{
+  width: 70%;
+  padding: 0 5%;
+  text-align: left;
+}
+
+.form.submit.newInsta table tr td textarea{
+  height: 200px;
+}
+
+.form.submit.newInsta table tr td input, .form.submit.newInsta table tr td textarea{
+  margin: 0 auto;
+  padding: 10px 0;
+  display: inline-block;
+  width: 100%;
+  background-color: #000;
+  border: none;
+  color: #fff;
+}
+
+.form.submit table tr td input:focus{
+  background-color: #000;
+  outline: none;
+}
+
+.form.view.userShow{
+  margin: 0 auto;
+  padding: 20px 0;
+  width: 70%;
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+
+.form.view table, .form.view table th, .form.view table td{
+  border: none;
+}
+
+.table_title{
+  height: 70px;
+  font-size: 2.5rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.form.view table tr th{
+  width: 50%;
+  padding: 10px 0;
+  text-align: center;
+  color: #000;
+}
+
+.form.view table tr td{
+  width: 50%;
+  padding: 0 5%;
+  max-height: 50px;
+  text-align: left;
+  color: #000;
+}
+
+.detail_profile{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.detail_profile tbody, .detail_profile tbody tr{
+  width: 100%;
+}
+
+.detail_profile tbody tr th{
+  width: 50%;
+  text-align: left;
+  min-width: 130px;
+}
+
+.detail_profile tbody tr td{
+  margin: 0;
+  padding: 0;
+  width: 50%;
+  max-width: 350px;
+  word-wrap: break-word;
+}
+
+.form.view.userFavoriteShow{
+  margin: 60px auto 0;
+  padding: 20px 0;
+  width: 70%;
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+.form.view.userFavoriteShow table{
+  margin: 0 auto;
+  width: 80%;
+}
+
+.form.view.userFavoriteShow table tbody tr th.insta_title{
+  width: 40%;
+  height: 50px;
+  text-align: left;
+  color: #000;
+}
+
+.form.view.userFavoriteShow table tbody tr td{
+  width: 60%;
+  padding-left: 20%;
+  text-align: left;
+  color: #000;
+}
+
+.container.instaShow, .container.createConfirm{
+  margin: 20px auto 0;
+  padding: 40px;
+  width: 60%;
+  min-height: 100px;
+  max-height: 1000px;
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+.container.instaShow .instashow-updated_at{
+  word-break: break-all;
+  margin: 30px 0 0;
+  padding: 0;
+  width: 100%;
+  font-size: 1.3rem;
+  line-height: 1;
+  text-align: right;
+  font-style: oblique;
+}
+
+
+.container.instaShow .instaShow-content, .container.createConfirm .createConfirm-content{
+  word-break: break-all;
+  margin: 30px 0;
+  padding: 30px 0;
+  width: 100%;
+  min-height: 50px;
+  max-height: 800px;
+  font-size: 2.3rem;
+  color: #000;
+  text-align: left;
+  border-top: 1px dotted #000;
+  border-bottom: 1px dotted #000;
+}
+
+.container.instaShow .instaShow-content{
+  border-bottom: 1px dotted #000;
+}
+
+.container.instaShow .instaShow-image{
+  padding: 0 0 30px;
+  border-bottom: 1px dotted #000;
+}
+
+.container.instaShow .instaShow-image img{
+  width: 100%;
+  height: 100%;
+}
+
+.instaShow-user, .instaShow-icon{
+  display: inline-block;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+.container.instaShow .instaShow-user{
+  width: 80%;
+  font-size: 1rem;
+  line-height: 1;
+  font-style: oblique;
+  color: #000;
+  text-align: right;
+}
+
+.container.instaShow .instaShow-user span{
+  font-size: 1.5rem;
+}
+
+.container.instaShow .instaShow-icon{
+  width: 15%;
+}
+
+.container.instaShow .instaShow-icon img{
+  max-width: 70px;
+  max-height: 70px;
+}
+
+.container.createConfirm .createConfirm-image img{
+  width: 100%;
+  height: 100%;
+  padding: 0 0 30px;
+  border-bottom: 1px dotted #000;
+}

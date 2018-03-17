@@ -1,0 +1,40 @@
+<div class="form submit newInsta">
+  <%= form_with(model: @picture, url: choose_new_or_edit, local: true) do |form| %>
+
+  <% if @picture.errors.any? %>
+  <div class="error_explanation">
+      <h2><%= @picture.errors.count %>件のエラーがあります。</h2>
+      <ul>
+          <% @picture.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+      </ul>
+  </div>
+  <% end %>
+
+  <table>
+    <tr>
+      <th><%= form.label :記事 %></th>
+      <td><%= form.text_area :content %></td>
+    </tr>
+    <tr>
+      <th><%= form.label :画像 %></th>
+      <td><%= form.file_field :image, id: :insta_image %></td>
+      <%= form.hidden_field :image_cache %>
+    </tr>
+  </table>
+
+  <div class="page-link toConfirmInsta">
+  <% if choose_new_or_edit == confirm_pictures_path %>
+    <%= form.submit "投稿", class: 'btn btn-warning' %>
+  <% else %>
+    <%= form.submit "編集", class: 'btn btn-warning' %>
+  <% end %>
+  </div>
+
+  <% end %>
+</div>
+
+<div class="page-link toInstaIndex">
+<%= link_to "投稿一覧へ戻る", pictures_path, class: 'btn btn-default' %>
+</div>

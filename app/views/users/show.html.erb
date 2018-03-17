@@ -1,0 +1,49 @@
+<div class="mainContainer">
+  <h1 class="pageTitle userShow">マイページ</h1>
+  <div class="container userShow">
+      <div class="form view userShow">
+        <table>
+          <tr>
+            <th colspan="2" class="table_title">プロフィール</th>
+          </tr>
+          <tr>
+            <th>
+              <%= image_tag @user.image.thumb.url if @user.image.present? %>
+            </th>
+            <td>
+              <table class="detail_profile">
+                <tr>
+                  <th>名前</th>
+                  <td><%= @user.name %></td>
+                </tr>
+                <tr>
+                  <th>メールアドレス</th>
+                  <td><%= @user.email %></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <div class="page-link toEditProfile">
+        <%= link_to "プロフィールを編集する", edit_user_path, class: 'btn btn-warning'  %>
+        </div>
+      </div>
+
+      <div class="form view userFavoriteShow">
+        <table>
+          <tr>
+            <th colspan="2" class="table_title">お気に入り投稿一覧</th>
+          </tr>
+          <% current_user.favorite_pictures.each do |picture| %>
+            <tr>
+              <th class="insta_title"><%= picture.content %></th>
+              <td><%= link_to "投稿詳細", picture_path(picture.id), class: 'btn btn-info' %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+  </div>
+  <div class="page-link toInstaIndex">
+    <%= link_to "投稿一覧へ", pictures_path, class: 'btn btn-default'  %>
+  </div>
+</div>

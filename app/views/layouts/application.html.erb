@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Instagram Clone 2018</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <header>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
+              <span class="sr-only">Instagram Clone 2018</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Instagram Clone 2018</a>
+          </div>
+          <div id="gnavi" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/">TOP</a></li>
+              <li><a href="/pictures#index">投稿一覧</a></li>
+              <li><a href="#">お問い合わせ</a></li>
+              <% if logged_in? %>
+              <li><%= link_to "マイページ", user_path(current_user.id) %></a></li>
+              <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+              <% else %>
+              <li><%= link_to "ユーザ新規登録", new_user_path %></li>
+              <li><%= link_to "ログイン", new_session_path %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="flash_msg">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+    </div>
+
+    <%= yield %>
+
+    <footer>
+      <p>DIVE INTO VODE 2017年10月期</p>
+      <p>並木　一樹</p>
+    </footer>
+
+  </body>
+</html>

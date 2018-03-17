@@ -1,0 +1,51 @@
+<div class="mainContainer">
+  <h2 class="pageTitle userRegister">プロフィール編集</h2>
+  <div class="container userRegister">
+
+    <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@user.errors.count, "error") %>
+         prohibited this @user from being saved:
+      </h2>
+      <% @user.errors.full_messages.each do |msg| %>
+      <ul>
+        <li><%= msg %></li>
+      </ul>
+      <% end %>
+    </div>
+    <% end %>
+
+    <div class="form submit editProfile">
+      <%= form_with(model: @user, local: true, url: user_path, method: 'patch') do |f| %>
+      <table>
+        <tr>
+          <th><%= f.label "プロフィール画像" %></th>
+          <td><%= f.file_field :image, id: :user_image %></td>
+          <%= f.hidden_field :image_cache %>
+        </tr>
+        <tr>
+          <th><%= f.label "名前" %></th>
+          <td><%= f.text_field :name %></td>
+        </tr>
+        <tr>
+          <th><%= f.label "メールアドレス" %></th>
+          <td><%= f.email_field :email %></td>
+        </tr>
+        <tr>
+          <th><%= f.label "パスワード" %></th>
+          <td><%= f.password_field :password %></td>
+        </tr>
+        <tr>
+          <th><%= f.label "パスワード(再入力)" %></th>
+          <td><%= f.password_field :password_confirmation %></td>
+        </tr>
+      </table>
+      <div class="page-link toUserProfile">
+        <%= f.submit "プロフィール変更", class: 'btn btn-warning' %>
+      </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

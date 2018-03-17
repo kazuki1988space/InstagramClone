@@ -1,0 +1,24 @@
+<div class="mainContainer">
+  <h1 class="pageTitle logIn">ログイン</h1>
+  <div class="container logIn">
+
+    <div class="form submit logIn">
+    <%= form_with(scope: :session, url: sessions_path) do |f| %>
+      <table>
+          <tr>
+            <th><%= f.label "メールアドレス" %></th>
+            <td><%= f.email_field :email %></td>
+          </tr>
+          <tr>
+            <th><%= f.label "パスワード" %></th>
+            <td><%= f.password_field :password %></td>
+          </tr>
+      </table>
+      <div class="page-link toUserShow">
+        <%= f.submit "ログイン", class: 'btn btn-warning' %>
+      </div>
+    <% end %>
+    </div>
+
+  </div>
+</div>

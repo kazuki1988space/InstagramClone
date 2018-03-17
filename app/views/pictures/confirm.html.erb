@@ -1,0 +1,23 @@
+<div class="mainContainer">
+  <h1 class="pageTitle createConfirm">投稿内容確認</h1>
+  <h3 class="confirm_sentence">以下の内容で投稿しますか？</h3>
+
+  <%= form_with(model: @picture, url: pictures_path, local: true) do |form| %>
+    <%= form.hidden_field :content %>
+    <div class="container createConfirm">
+      <div class="createConfirm-content"><%= @picture.content %></div>
+      <div class="createConfirm-image"><%= image_tag(@picture.image.url) if @picture.image.present? %></div>
+      <%= hidden_field_tag :"cache[image]", @picture.image.cache_name %>
+    </div>
+    <div class="page-link toInstaRegist">
+      <%= form.submit  "登録", class: 'btn btn-warning' %>
+    </div>
+  <% end %>
+
+  <div class="page-link toNewInsta">
+  <%= form_with(model: @picture, url: new_picture_path, local: true, method: 'get') do |form| %>
+    <%= form.hidden_field :content %>
+    <%= form.submit "戻る", name: 'back', class: 'btn btn-default' %>
+  <% end %>
+  </div>
+</div>

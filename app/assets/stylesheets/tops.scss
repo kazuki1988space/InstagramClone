@@ -1,0 +1,112 @@
+*{
+  box-sizing: border-box;
+}
+
+li{
+  list-style-type: none;
+}
+
+html{
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  width: 100%;
+  height: 100%;
+  background-color: #000000; /* ここを変更 */
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  position: relative;
+}
+
+.topContaier{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+  background-image: url('../assets/top_image2.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.topPage, .topContaier .page-link{
+  margin: 0;
+  padding: 0;
+  color: #ddd;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+h1.topPage{
+  top: 30%;
+  color: black;
+  font-weight: bold;
+}
+
+p.topPage{
+  top: 40%;
+  color: black;
+}
+
+.topContaier .page-link{
+  top: 50%;
+}
+
+header, footer{
+  margin: 0 auto;
+  text-align: center;
+}
+
+header{
+  width: 100%;
+}
+
+header .navbar.navbar-default{
+  margin: 0;
+  background-color: #020;
+  border: none;
+}
+
+header .navbar-header .navbar-brand{
+  float: left;
+  font-size: 22px;
+  color: #ddd;
+}
+
+header .collapse.navbar-collapse{
+  float: right;
+}
+
+header .collapse.navbar-collapse ul li a{
+  color: #ddd;
+}
+
+.topContaier .btn-warning{
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+.flash_msg{
+  margin: 0 auto;
+  text-align: center;
+  color: red;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+}
+
+footer{
+  width: 100%;
+  background-color: #020;
+  padding: 20px 0 10px 0;
+  color: #ddd;
+  margin: auto;
+  font-size: 12px;
+  position: fixed;
+  bottom: 0;
+}

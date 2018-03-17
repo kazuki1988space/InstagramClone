@@ -1,0 +1,36 @@
+<div class="mainContainer">
+  <h1 class="pageTitle instaIndex">投稿一覧</h1>
+
+  <div class="container">
+    <div class="row">
+      <% @pictures.each do |picture| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="post-preview">
+            <div class="insta-container">
+              <div class="insta-content"><%= picture.content %></div>
+              <div class="insta-image"><%= image_tag(picture.image.url) if picture.image.present? %></div>
+              <div class="insta-user">Created By <span><%= picture.user.name %></span></div>
+              <div class="insta-links">
+                <ul>
+                  <li><%= link_to "詳細", picture_path(picture.id), class: 'btn btn-default' %></li>
+                  <% unless current_user.nil? %>
+                    <% if picture.user_id == current_user.id %>
+                    <li><%= link_to "編集", edit_picture_path(picture.id), class: 'btn btn-info' %></li>
+                    <li><%= link_to "削除", picture_path(picture.id), method: :delete,
+                     data: { confirm: '削除していいですか？' }, class: 'btn btn-danger' %></li>
+                     <% end %>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="page-link toNewInsta">
+  <%= link_to "新しく投稿する", new_picture_path, class: 'btn btn-warning' %>
+  </div>
+
+</div>
