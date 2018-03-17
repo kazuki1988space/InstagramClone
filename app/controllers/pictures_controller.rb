@@ -32,7 +32,11 @@ class PicturesController < ApplicationController
   end
 
   def show
-    @favorite = current_user.favorites.find_by(picture_id: @picture.id)
+    if current_user.nil?
+      redirect_to new_session_path
+    else
+      @favorite = current_user.favorites.find_by(picture_id: @picture.id)
+    end
   end
 
   def edit
