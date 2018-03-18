@@ -17,14 +17,22 @@ class PicturesController < ApplicationController
 
   def confirm
     @picture = Picture.new(picture_params)
+    if !@picture.content.present?
+      flash[:danger] = "記事を入力して下さい"
+      if !@picture.image_cache.present?
+        flash[:danger] = "記事と画像を入力して下さい"
+      end
+      redirect_to new_picture_path
+    elsif !@picture.image_cache.present?
+      flash[:danger] = "画像を入力して下さい"
+      redirect_to new_picture_path
+    end
   end
 
   def create
     @picture = Picture.new(picture_params)
     @picture.user_id = current_user.id
-    if @picture.image.present?
-      @picture.image.retrieve_from_cache! params[:cache][:image]
-    end
+    @picture.image.retrieve_from_cache! params[:cache][:image]
 
     if @picture.save
       ContactMailer.contact_mail(@picture).deliver
@@ -56,7 +64,7 @@ class PicturesController < ApplicationController
 
   private
   def picture_params
-    params.require(:picture).permit(:content, :image)
+    params.require(:picture).permit(:content, :image, :image_cache, :cache)
   end
 
   def set_params
