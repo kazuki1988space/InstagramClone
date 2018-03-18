@@ -1,6 +1,7 @@
 class PicturesController < ApplicationController
 
   before_action :set_params, only: [:edit, :update, :show, :destroy]
+  before_action :logged_in?, only:[:new, :edit, :show]
 
   def index
     @pictures = Picture.all
@@ -21,7 +22,9 @@ class PicturesController < ApplicationController
   def create
     @picture = Picture.new(picture_params)
     @picture.user_id = current_user.id
-    @picture.image.retrieve_from_cache! params[:cache][:image]
+    if @picture.image.present?
+      @picture.image.retrieve_from_cache! params[:cache][:image]
+    end
 
     if @picture.save
       ContactMailer.contact_mail(@picture).deliver
@@ -32,17 +35,13 @@ class PicturesController < ApplicationController
   end
 
   def show
-    if current_user.nil?
-      redirect_to new_session_path
-    else
-      @favorite = current_user.favorites.find_by(picture_id: @picture.id)
-    end
+    @favorite = current_user.favorites.find_by(picture_id: @picture.id)
   end
 
   def edit
   end
 
-  def updated
+  def update
     if @picture.update(picture_params)
       redirect_to pictures_path, notice: "記事を編集しました"
     else
@@ -62,6 +61,13 @@ class PicturesController < ApplicationController
 
   def set_params
     @picture = Picture.find(params[:id])
+  end
+
+  def logged_in?
+    if current_user.nil?
+      flash[:danger] = "ログインして下さい"
+      redirect_to new_session_path
+    end
   end
 
 end
